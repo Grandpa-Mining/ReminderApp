@@ -16,9 +16,12 @@ app.on("ready", function(){
         webPreferences:{
             nodeIntegration: true
         },
+        backgroundColor: '#1f1f1f',
         frame: false,
         icon: path.join(__dirname, 'img/icons/appIcon.png'),//change later
-        width: 900
+        width: 900,
+        'min-height': 500,
+        'min-width': 900
     });
     // Load HTML into window
     mainWindow.loadURL(url.format({
