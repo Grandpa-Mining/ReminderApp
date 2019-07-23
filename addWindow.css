@@ -1,0 +1,9 @@
+body{
+    background: #F0F0F0;
+}
+#item {
+    background: #D2D2D2;
+    border: solid 1px #D2D2D2;
+    border-radius: 8px;
+    padding: 5px 10px;
+}

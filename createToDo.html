@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="addWindow.css" type="text/css">
+    <link rel="stylesheet" href="reset.css" type="text/css">
+    <title>Create a To-Do</title>
+</head>
+<body>
+    <form>
+        <div>
+            <input type="text" name="todoInput" id="item" autofocus>
+            <button type="submit">Add To-Do</button>
+        </div>
+    </form>
+
+    <script>
+        const electron = require('electron');
+        const {ipcRenderer} = electron;
+        const MongoClient = require('mongodb').MongoClient;
+
+
+        //needs to be changed to send the data to a database (MongoDB)
+        const form = document.querySelector('form');
+        form.addEventListener('submit', submitForm);
+
+        function submitForm(e){
+            e.preventDefault();
+            const item = document.querySelector('#item').value;
+            ipcRenderer.send('item:add', item)
+        }
+    </script>
+</body>
+</html>

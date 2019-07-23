@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="mainWindow.css" type="text/css">
+    <link rel="stylesheet" href="reset.css" type="text/css">
+    <title>To-Do List</title> <!--REMINDER: we need a creative name for our app-->
+</head>
+<body>
+    <div class="topBar" style="-webkit-app-region: drag">
+        <button id="closeApp">X</button>
+        <button id="maximizeApp">□</button> <!--This icon needs to be changed later-->
+        <button id="minimizeApp">‒</button>
+    </div>
+
+    <div class="selectCollection">
+        
+    </div>
+
+    <div class="content">
+        <div id="img_container">
+            <img class="coversheet" src="img/coverImages/sunset.png" alt="material styled sunset coversheet">
+        </div>
+    </div>
+
+    <ul></ul>
+
+    <script>
+        const electron = require('electron');
+        const {ipcRenderer} = electron;
+        const ul = document.querySelector('ul');
+
+        ipcRenderer.on('item:add', function(e, item){
+            const li = document.createElement('li');
+            const itemText = document.createTextNode(item);
+            li.appendChild(itemText);
+            ul.appendChild(li);
+        });
+
+        //Remove Item
+        ul.addEventListener('dblclick', removeItem);
+
+        function removeItem(e){
+            e.target.remove();
+        }
+
+        //Substitute to the windows buttons
+        
+        document.getElementById("closeApp").addEventListener("click", function(){
+            ipcRenderer.send('closeApp:close', true)
+        });
+
+        document.getElementById('minimizeApp').addEventListener('click', function(){
+            ipcRenderer.send('minimizeApp:min', true)
+        });
+
+    </script>
+</body>
+</html>
