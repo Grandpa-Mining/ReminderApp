@@ -19,6 +19,7 @@ body{
     height: 22px;
     font-weight: 900;
     font-size: 11px;
+    outline-color: transparent;
 }
 #minimizeApp{
     -webkit-app-region: no-drag;
@@ -29,6 +30,7 @@ body{
     float: right;
     font-family: 'Nunito';
     height: 22px;
+    outline-color: transparent;
 }
 #maximizeApp{
     -webkit-app-region: no-drag;
@@ -39,12 +41,15 @@ body{
     float: right;
     font-family: 'Nunito';
     height: 22px;
+    outline-color: transparent;
 }
 #minimizeApp:hover, #maximizeApp:hover {
     background: #414141;
+    outline-color: transparent;
 }
 #closeApp:hover{
     background: #B92828;
+    outline-color: transparent;
 }
 .mainSideBar {
     background-color: #171717;
