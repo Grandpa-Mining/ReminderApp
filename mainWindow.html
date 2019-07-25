@@ -15,21 +15,41 @@
     </div>
 
     <div class="mainSideBar">
-        
+        <!--add lists + code-->
+    </div>
+
+    <div id="addItem">
+        <form>
+            <input type="text">
+            <button type="submit"></button>
+        </form>
     </div>
 
     <div class="content">
         <div id="img_container">
             <img class="coversheet" src="img/coverImages/sunset.png" alt="material styled sunset coversheet">
+            <h1 class="title">Today</h1>
+            <button id="addReminder">+</button>
+        </div>
+
+
+        <div class="reminders">
+            <ul id="todayList"> <!--Random reminders-->
+                <li>Do the laundury</li>
+                <li>Cook Dinner</li>
+                <li>Write an email</li>
+                <li>Finish coding this app without any goddamn bug</li>
+                <li>Pay Crunchyroll</li>
+            </ul>
         </div>
     </div>
 
-    <ul></ul>
 
     <script>
         const electron = require('electron');
         const {ipcRenderer} = electron;
         const ul = document.querySelector('ul');
+        const remote = require('electron').remote;
 
         ipcRenderer.on('item:add', function(e, item){
             const li = document.createElement('li');
@@ -51,9 +71,28 @@
             ipcRenderer.send('closeApp:close', true)
         });
 
-        document.getElementById('minimizeApp').addEventListener('click', function(){
-            ipcRenderer.send('minimizeApp:min', true)
+        document.getElementById("minimizeApp").addEventListener("click", function (e) {
+            const window = remote.getCurrentWindow();
+            window.minimize(); 
         });
+
+        document.getElementById("maximizeApp").addEventListener("click", function (e) {
+            const window = remote.getCurrentWindow();
+            if (!window.isMaximized()) {
+                window.maximize();          
+            } else {
+                window.unmaximize();
+            }
+        });
+
+        document.getElementById('addReminder').addEventListener('click', function(){
+            document.getElementById('addItem').style.display='block';
+        });
+
+        //addwindow opens when the '+' button is pressed
+        //document.getElementById('addReminder').addEventListener('click', function(){
+        //    ipcRenderer.send('addWindow:open', true)
+        //});
 
     </script>
 </body>

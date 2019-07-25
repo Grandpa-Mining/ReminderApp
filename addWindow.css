@@ -1,9 +1,9 @@
 body{
-    background: #F0F0F0;
+    background-color: #1f1f1f;
 }
-#item {
-    background: #D2D2D2;
-    border: solid 1px #D2D2D2;
-    border-radius: 8px;
-    padding: 5px 10px;
+.submitSection{
+    margin: 0px auto;
+}
+button{
+    background: transparent;
 }
