@@ -40,22 +40,18 @@ document.getElementById("maximizeApp").addEventListener("click", function (e) {
 
 
 document.getElementById('addReminder').addEventListener('click', function(){
-    checkOpen();
+        if (isOpen == false) {
+            // this is '+' button
+                document.getElementById('addItem').style.display='block';
+                document.getElementById('addReminder').style.transform='rotate(45deg)'
+                isOpen = true;
+        } else {
+            // this is '+' button
+                document.getElementById('addItem').style.display='none';
+                document.getElementById('addReminder').style.transform='rotate(0deg)'
+                isOpen = false;
+        }
 });
-
-function checkOpen(){
-    if (isOpen == false) {
-        // this is '+' button
-            document.getElementById('addItem').style.display='block';
-            document.getElementById('addReminder').style.transform='rotate(45deg)'
-            isOpen = true;
-    } else {
-        // this is '+' button
-            document.getElementById('addItem').style.display='none';
-            document.getElementById('addReminder').style.transform='rotate(0deg)'
-            isOpen = false;
-    }
-}
 
 
 //TODO: rewrite code
