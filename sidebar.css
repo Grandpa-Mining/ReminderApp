@@ -1,0 +1,29 @@
+.account{
+    background: #242424;
+    widows: 80%;
+    height: 50px;
+    margin: 30px 4% 0px 4%;
+    padding: 4% 0%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #00000033;
+}
+.profilePicContainer{
+    height: 100%;
+    width: 30%;
+    border-radius: 100%;
+    overflow: hidden;
+    margin: 0% 0% 0% 4%;
+    display: inline-block;
+}
+img.profilePic{
+    height: 100%;
+    width: 100%;
+}
+.account h1 {
+    color: white;
+    display: inline-block;
+    position: absolute;
+    top: 47px;
+    left: 42%;
+    font-family: 'Nunito';
+}

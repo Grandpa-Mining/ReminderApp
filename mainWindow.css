@@ -92,7 +92,6 @@ h1.title{
     color: white;
     font-family: 'Nunito';
     font-size: 50px;
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.329);
 }
 button#addReminder{
     bottom: 13px;
@@ -107,6 +106,7 @@ button#addReminder{
     border: 0px;
     opacity: 0.8;
     transition: 0.3s;
+    outline: transparent;
 }
 button#addReminder:hover{
     color: white;

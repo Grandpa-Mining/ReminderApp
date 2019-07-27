@@ -1,103 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <head>
     
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+        
     <link rel="stylesheet" href="mainWindow.css" type="text/css">
+    <link rel="stylesheet" href="sidebar.css" type="text/css">
     <link rel="stylesheet" href="reset.css" type="text/css">
     <title>To-Do List</title> <!--REMINDER: we need a creative name for our app-->
 </head>
 <body>
     <div class="topBar" style="-webkit-app-region: drag">
-        <button id="closeApp">X</button>
-        <button id="maximizeApp">●</button> <!--This icon needs to be changed later-->
-        <button id="minimizeApp">‒</button>
-    </div>
-
-    <div class="mainSideBar">
-        <!--add lists + code-->
-    </div>
-
-    
-    <div class="content">
-        <div id="img_container">
-            <img class="coversheet" src="img/coverImages/sunset.png" alt="material styled sunset coversheet">
-            <h1 class="title">Today</h1>
-            <button id="addReminder">+</button>
+            <button id="closeApp">X</button>
+            <button id="maximizeApp">●</button> <!--This icon needs to be changed later-->
+            <button id="minimizeApp">‒</button>
+        </div>
+        
+        <div class="mainSideBar">
+            <!--add lists + code-->
+            <div class="account">
+                <div class="profilePicContainer">
+                    <img class="profilePic" src="img/coverImages/frosty.jpg" alt="User profile picture">
+                </div>
+                <h1>Local User</h1>
+            </div>
+            <div class="today">
+                <h3>Today</h3>
+            </div>
+            <div class="calendar"></div>
         </div>
         
         
-
-        <div class="reminders">
-            <ul id="todayList"> <!--Random reminders-->
-                <li id="addItem">
-                    <div>
-                        <form>
-                            <input type="text">
+        <div class="content">
+            <div id="img_container">
+                <img class="coversheet" src="img/coverImages/sunset.png" alt="material styled sunset coversheet">
+                <h1 class="title">Today</h1>
+                <button id="addReminder">+</button>
+            </div>
+            
+            
+            
+            <div class="reminders">
+                <ul id="todayList"> <!--Random reminders-->
+                    <li id="addItem">
+                        <div>
+                            <form>
+                                <input id="item" type="text">
+                                <button type="submit">></button>
+                            </form>
                             <button class="date-time">O</button>
-                            <button type="submit">></button>
-                        </form>
                     </div>
                 </li>
                 <li>Do the laundury</li>
-                <li>Cook Dinner</li>
                 <li>Write an email</li>
                 <li>Finish coding this app without any goddamn bug</li>
                 <li>Pay Crunchyroll</li>
             </ul>
         </div>
     </div>
+    
 
-
-    <script>
-        const electron = require('electron');
-        const {ipcRenderer} = electron;
-        const ul = document.querySelector('ul');
-        const remote = require('electron').remote;
-
-        ipcRenderer.on('item:add', function(e, item){
-            const li = document.createElement('li');
-            const itemText = document.createTextNode(item);
-            li.appendChild(itemText);
-            ul.appendChild(li);
-        });
-
-        //Remove Item
-        ul.addEventListener('dblclick', removeItem);
-
-        function removeItem(e){
-            e.target.remove();
-        }
-
-        //Substitute to the windows buttons
-        
-        document.getElementById("closeApp").addEventListener("click", function(){
-            ipcRenderer.send('closeApp:close', true)
-        });
-
-        document.getElementById("minimizeApp").addEventListener("click", function (e) {
-            const window = remote.getCurrentWindow();
-            window.minimize(); 
-        });
-
-        document.getElementById("maximizeApp").addEventListener("click", function (e) {
-            const window = remote.getCurrentWindow();
-            if (!window.isMaximized()) {
-                window.maximize();          
-            } else {
-                window.unmaximize();
-            }
-        });
-
-        document.getElementById('addReminder').addEventListener('click', function(){
-            document.getElementById('addItem').style.display='block';
-        });
-
-        //addwindow opens when the '+' button is pressed
-        //document.getElementById('addReminder').addEventListener('click', function(){
-        //    ipcRenderer.send('addWindow:open', true)
-        //});
-
-    </script>
+    <script type="text/javascript" src="mainHtmlScript.js"></script>
 </body>
 </html>
