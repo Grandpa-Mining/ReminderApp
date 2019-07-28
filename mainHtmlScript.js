@@ -40,17 +40,17 @@ document.getElementById("maximizeApp").addEventListener("click", function (e) {
 
 
 document.getElementById('addReminder').addEventListener('click', function(){
-        if (isOpen == false) {
-            // this is '+' button
-                document.getElementById('addItem').style.display='block';
-                document.getElementById('addReminder').style.transform='rotate(45deg)'
-                isOpen = true;
-        } else {
-            // this is '+' button
-                document.getElementById('addItem').style.display='none';
-                document.getElementById('addReminder').style.transform='rotate(0deg)'
-                isOpen = false;
-        }
+    if (isOpen == false) {
+        // this is 'X' button
+            document.getElementById('addItem').style.display='block';
+            document.getElementById('addReminder').style.transform='rotate(45deg)'
+            isOpen = true;
+    } else {
+        // this is '+' button
+            document.getElementById('addItem').style.display='none';
+            document.getElementById('addReminder').style.transform='rotate(0deg)'
+            isOpen = false;
+    }
 });
 
 

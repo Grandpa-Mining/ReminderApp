@@ -55,7 +55,6 @@ body{
     outline-color: transparent;
 }
 
-
 .mainSideBar {
     background-color: #171717;
     height: 100%;
@@ -122,28 +121,6 @@ button#addReminder:hover{
     font-family: 'Nunito';
     /*animation: drop 0.5s ease forwards;*/
 }
-
-
-
-/*Custom scrollbar (taken by Dark Instagram by DM)*/
-::-webkit-scrollbar-track-piece {
-    background-color: transparent;
-    border-radius: 0 !important;
-    border: none !important;
-}
-::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-::-webkit-scrollbar-thumb {
-    background: #323232;
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #353535;
-}
-
-
 /*Add Item popup*/
 #addItem{
     display: none;
@@ -175,6 +152,7 @@ button#addReminder:hover{
     border-radius: 20px;
 }
 
+/*Animations*/
 @keyframes slide{
     0%{ transform: translateX(-900px)}
     70%{ transform: translateX(10px)}
@@ -193,4 +171,22 @@ button#addReminder:hover{
         transform: translateY(2px);
     }
     100%{ border-bottom: solid 1px #5d5d5d }
+}
+
+/*Custom scrollbar (taken by Dark Instagram by DM)*/
+::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+    border-radius: 0 !important;
+    border: none !important;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: #323232;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #353535;
 }

@@ -1,15 +1,16 @@
 .account{
     background: #242424;
-    widows: 80%;
     height: 50px;
     margin: 30px 4% 0px 4%;
     padding: 4% 0%;
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px #00000033;
+    overflow: hidden;
+    position: relative;
 }
-.profilePicContainer{
-    height: 100%;
-    width: 30%;
+.profilePicContainer {
+    height: 50px;
+    width: 50px;
     border-radius: 100%;
     overflow: hidden;
     margin: 0% 0% 0% 4%;
@@ -19,11 +20,55 @@ img.profilePic{
     height: 100%;
     width: 100%;
 }
-.account h1 {
-    color: white;
+.accountInfoContainer {
+    width: 100px;
     display: inline-block;
+    margin: 11px 0% 0% 5%;
     position: absolute;
-    top: 47px;
-    left: 42%;
+}
+.account h1 {
+    color: #e4e4e4;
+    display: inline-block;
+    position: static;
+    font-family: 'Nunito';
+    clear: both;
+    font-weight: bold;
+}
+.account h2 {
+    color: #949494;
+    display: inline-block;
+    position: static;
     font-family: 'Nunito';
 }
+
+/*Today*/
+.today {
+    background: #242424;
+    margin: 14px 4% 8px 4%;
+    padding: 4%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #00000033;
+    font-family: 'Nunito';
+}
+.sTitle{
+    color: #cecece;
+    display: inline-block;
+}
+.num {
+    float: right;
+    background: #383838;
+    color: #969696;
+    padding: 0px 10px;
+    border-radius: 20px;
+}
+
+/*
+@media only screen and (min-width: 1260px){
+    .account h2 {
+        color: white;
+        display: inline-block;
+        top: 76px;
+        left: 35%;
+        font-family: 'Nunito';
+    }
+}*/
