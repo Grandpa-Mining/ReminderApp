@@ -1,7 +1,7 @@
 .account{
     background: #242424;
     height: 50px;
-    margin: 30px 4% 0px 4%;
+    margin: 34px 4% 0px 4%;
     padding: 4% 0%;
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px #00000033;
@@ -44,7 +44,7 @@ img.profilePic{
 /*Today*/
 .today {
     background: #242424;
-    margin: 14px 4% 8px 4%;
+    margin: 6px 4% 8px 4%;
     padding: 4%;
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px #00000033;
@@ -54,12 +54,60 @@ img.profilePic{
     color: #cecece;
     display: inline-block;
 }
-.num {
+#num {
     float: right;
     background: #383838;
     color: #969696;
     padding: 0px 10px;
     border-radius: 20px;
+}
+
+.line {
+    width: 80%;
+    height: 1px;
+    /* color: white; */
+    background: #252525;
+    margin: 0% 10% -2% 10%;
+}
+
+.addList {
+    background: #242424;
+    margin: 14px 4% 8px 4%;
+    padding: 4%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #00000033;
+    font-family: 'Nunito';
+}
+#newListLabel {
+    position: absolute;
+    left: 50px;
+    margin-top: 3px;
+    color: #ffffff;
+    opacity: 0.4;
+}
+.addListMenu h1{
+    color: rgb(204, 204, 204);
+    font-family: 'Nunito';
+    margin-left: 28px;
+    padding-top: 2px;
+}
+.addList input {
+    width: 78%;
+    background: transparent;
+    border: transparent;
+    margin-left: 28px;
+    outline: transparent;
+    color: rgb(189, 189, 189);
+    font-family: 'Nunito';
+    padding: 0px 5px;
+}
+.addListButton{
+    background: transparent;
+    border: transparent;
+    height: 19px;
+    width: 19px;
+    position: absolute;
+    padding: 0px;
 }
 
 /*

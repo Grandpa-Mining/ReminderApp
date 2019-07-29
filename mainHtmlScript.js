@@ -53,6 +53,12 @@ document.getElementById('addReminder').addEventListener('click', function(){
     }
 });
 
+//counts how many reminders are in the "Today" list
+setInterval(function(){
+    let todayCounter = document.getElementById("todayList").childElementCount - 1;
+    document.getElementById('num').innerHTML=todayCounter;
+}, 1000);
+
 
 //TODO: rewrite code
 //send item and add it to the main html list
@@ -64,3 +70,5 @@ function submitForm(e){
     const item = document.querySelector('#item').value;
     ipcRenderer.send('item:add', item)
 }
+
+//Sidebar functionality
