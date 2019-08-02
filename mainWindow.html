@@ -49,13 +49,18 @@
                 </li>
             </ul>
             <div class="line"></div>
+            <ul class="reminder-list" data-lists>
+                <!-- <li class='list-name active-list'>List1</li>
+                <li class='list-name'>List2</li>
+                <li class='list-name'>List3</li> -->
+            </ul>
             <div class="addList">
-                <form>
+                <form data-new-list-form>
                     <button type="submit" class="addListButton"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                         width="19" height="19"
                         viewBox="0 0 172 172"
                         style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#666666"><path d="M86,14.33333c-39.5815,0 -71.66667,32.08517 -71.66667,71.66667c0,39.5815 32.08517,71.66667 71.66667,71.66667c39.5815,0 71.66667,-32.08517 71.66667,-71.66667c0,-39.5815 -32.08517,-71.66667 -71.66667,-71.66667zM114.66667,93.16667h-21.5v21.5c0,3.956 -3.21067,7.16667 -7.16667,7.16667v0c-3.956,0 -7.16667,-3.21067 -7.16667,-7.16667v-21.5h-21.5c-3.956,0 -7.16667,-3.21067 -7.16667,-7.16667v0c0,-3.956 3.21067,-7.16667 7.16667,-7.16667h21.5v-21.5c0,-3.956 3.21067,-7.16667 7.16667,-7.16667v0c3.956,0 7.16667,3.21067 7.16667,7.16667v21.5h21.5c3.956,0 7.16667,3.21067 7.16667,7.16667v0c0,3.956 -3.21067,7.16667 -7.16667,7.16667z"></path></g></g></svg></button>
-                    <input type="text" id="newListInput">
+                    <input type="text" id="newListInput" data-new-list-input>
                     <label for="newListInput" id="newListLabel">Add new list</label>
                 </form>
             </div>
@@ -102,7 +107,7 @@
     </div>
     
 
-    <script type="text/javascript" src="mainHtmlScript.js"></script>
+    <script defer type="text/javascript" src="mainHtmlScript.js"></script>
     <script>
     document.getElementById('newListInput').addEventListener('focus', function(){
         document.getElementById('newListLabel').style.opacity='0';

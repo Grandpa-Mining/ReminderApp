@@ -65,14 +65,12 @@ img.profilePic{
 .line {
     width: 80%;
     height: 1px;
-    /* color: white; */
     background: #252525;
-    margin: 0% 10% -2% 10%;
+    margin: 10px 10%;
 }
-
 .addList {
     background: #242424;
-    margin: 14px 4% 8px 4%;
+    margin: 0px 4% 10px 4%;
     padding: 4%;
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px #00000033;
@@ -110,13 +108,41 @@ img.profilePic{
     padding: 0px;
 }
 
-/*
-@media only screen and (min-width: 1260px){
-    .account h2 {
-        color: white;
-        display: inline-block;
-        top: 76px;
-        left: 35%;
-        font-family: 'Nunito';
+/*lists*/
+.reminder-list li {
+    background: #242424;
+    margin: 6px 4% 8px 4%;
+    padding: 4%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #00000033;
+    font-family: 'Nunito';
+    color: #cecece;
+    display: block;
+}
+.reminder-list li:hover {
+    animation: hovered-list 0.4s ease forwards; /*Needs to be changed*/
+}
+.active-list {
+    transform-box: fill-box;
+    padding: 4% 0% 4% 2% !important;
+    animation: selected 0.3s ease forwards;
+}
+@keyframes hovered-list{
+    0%{}
+    100%{ background: #292929 }
+}
+
+@keyframes selected{
+    0%{
+        border-left: solid 0px #585858;
+        padding: 4% 4% 4% 4% !important;    
     }
-}*/
+    80%{
+        border-left: solid 6px #585858;
+        padding: 4% 0% 4% 3% !important;
+    }
+    100%{
+        border-left: solid 5px #585858;
+        padding: 4% 0% 4% 2% !important; 
+    }
+}
