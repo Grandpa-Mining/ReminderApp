@@ -70,9 +70,26 @@ const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'reminder.selectedListId'
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY)
 
+//Switch between Today and List view
+// if (selectedListId !== undefined){
+//     document.getElementsByClassName('content_today').style.display='block'
+//     document.getElementsByClassName('content').style.display='none'
+// } else{
+//     document.getElementsByClassName('content_today').style.display='none'
+//     document.getElementsByClassName('content').style.display='none'
+// }
+document.getElementById('today').addEventListener('click', function(){
+    selectedListId = 'nope'
+    document.getElementById('content').style.display='none'
+    document.getElementById('contentToday').style.display='block'
+    saveAndRender()
+})
+
 listsContainer.addEventListener('click', function(e){
     if (e.target.tagName.toLowerCase() === 'li'){
         selectedListId = e.target.dataset.listId
+        document.getElementById('content').style.display='block'
+        document.getElementById('contentToday').style.display='none'
     }
     saveAndRender()
 })

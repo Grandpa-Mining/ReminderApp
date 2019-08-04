@@ -42,7 +42,7 @@ img.profilePic{
 }
 
 /*Today*/
-.today {
+#today {
     background: #242424;
     margin: 6px 4% 8px 4%;
     padding: 4%;
@@ -50,6 +50,10 @@ img.profilePic{
     box-shadow: 0px 0px 10px 0px #00000033;
     font-family: 'Nunito';
 }
+#today:hover {
+    animation: hovered-list 0.4s ease forwards; /*Needs to be changed*/
+}
+
 .sTitle{
     color: #cecece;
     display: inline-block;
