@@ -127,6 +127,21 @@ img.profilePic{
     padding: 4% 0% 4% 2% !important;
     animation: selected 0.3s ease forwards;
 }
+
+button.deleteListButton {
+    display: none;
+}
+.deleteListButton-active {
+    background: transparent;
+    border: transparent;
+    padding: 0px;
+    float: right;
+    display: block !important;
+    margin: -1px 14px 0px 0px;
+    opacity: 0.7;
+}
+
+
 @keyframes hovered-list{
     0%{}
     100%{ background: #292929 }

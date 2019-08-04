@@ -58,10 +58,12 @@ function submitForm(e){
 //looks if a List in the sidebar is hovered
 //Not finished
 
+
 //Sidebar functionality
 const listsContainer = document.querySelector('[data-lists]')
 const newListForm = document.querySelector('[data-new-list-form]')
 const newListInput = document.querySelector('[data-new-list-input]')
+const deleteListButton = document.querySelector('[data-delete-list]')
 
 const LOCAL_STORAGE_LIST_KEY = 'reminder.lists'
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'reminder.selectedListId'
@@ -72,6 +74,12 @@ listsContainer.addEventListener('click', function(e){
     if (e.target.tagName.toLowerCase() === 'li'){
         selectedListId = e.target.dataset.listId
     }
+    saveAndRender()
+})
+
+deleteListButton.addEventListener('click', function(e){
+    lists = lists.filter(list => list.id !== selectedListId)
+    selectedListId = null
     saveAndRender()
 })
 
@@ -105,10 +113,11 @@ function render() {
         listElement.dataset.listId = list.id
         listElement.classList.add('list-item')
         listElement.innerText = list.name
+        listsContainer.appendChild(listElement)
+
         if (list.id === selectedListId){
             listElement.classList.add('active-list')
         }
-        listsContainer.appendChild(listElement)
     })
 }
 

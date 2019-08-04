@@ -86,6 +86,41 @@ body{
     filter: blur(2px);
     */
 }
+
+#top-bar-list {
+    position: sticky;
+    overflow: hidden;
+    width: 90%;
+    height: 90px;
+    margin: 35px auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #00000033;
+    background-color: rgb(45, 91, 129);
+}
+#top-bar-list img{
+    width: 100%;
+    filter: brightness(0.7);
+    opacity: 0;
+    /* Not sure if we should include it in the final build.
+    filter: blur(2px);
+    */
+}
+button#deleteList {
+    bottom: 24px;
+    position: sticky;
+    margin-right: 5%;
+    color: white;
+    font-family: 'Nunito';
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.329);
+    float: right;
+    background-color: transparent;
+    border: 0px;
+    opacity: 0.8;
+    transition: 0.3s;
+    outline: transparent;
+    padding: 0px;
+}
+
 h1.title{
     bottom: 20px;
     position: sticky;
