@@ -1,0 +1,18 @@
+input[type=checkbox] {
+    visibility: hidden;
+    position: absolute;
+}
+.actual_checkbox {
+    background: transparent;
+    border: solid 2px #a7a7a7;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin: -2px 0px 0px 0px;
+    border-radius: 4px;
+}
+input:checked + label {
+    background:#909090;
+}

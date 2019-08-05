@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="mainWindow.css" type="text/css">
     <link rel="stylesheet" href="sidebar.css" type="text/css">
     <link rel="stylesheet" href="reset.css" type="text/css">
+    <link rel="stylesheet" href="checkboxes.css" type="text/css">
     <title>To-Do List</title>
     <!--REMINDER: we need a creative name for our app-->
 </head>
@@ -157,18 +158,30 @@
                         </form>
                     </div>
                 </li>
-                <li>Do the laundury</li>
-                <li>Write an email</li>
-                <li>Finish coding this app without any goddamn bug</li>
-                <li>Pay Crunchyroll</li>
+                <li><input type="checkbox" id="1">
+                    <label for="1" class="actual_checkbox"></label>
+                    <p>Do the laundury</p>
+                </li>
+                <li><input type="checkbox" id="2">
+                    <label for="2" class="actual_checkbox"></label>
+                    <p>Code this app without any goddamn bugs</p>
+                </li>
+                <li><input type="checkbox" id="3">
+                    <label for="3" class="actual_checkbox"></label>
+                    <p>Some random stuff</p>
+                </li>
+                <li><input type="checkbox" id="4">
+                    <label for="4" class="actual_checkbox"></label>
+                    <p>Do the laundury, again</p>
+                </li>
             </ul>
         </div>
     </div>
 
-    <div id="content">
+    <div id="content" data-display-content>
         <div id="top-bar-list">
             <img class="coversheet" src="img/coverImages/sunset.png" alt="material styled sunset coversheet">
-            <h1 class="title">LIST_NAME</h1>
+            <h1 class="title" data-list-title>LIST_NAME</h1>
             <button id="addReminder">+</button>
             <button id='deleteList' data-delete-list><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="34" height="34"
                     viewBox="0 0 172 172" style=" fill:#000000;">
@@ -231,10 +244,22 @@
                         </form>
                     </div>
                 </li>
-                <li>Do the laundury</li>
-                <li>Write an email</li>
-                <li>Finish coding this app without any goddamn bug</li>
-                <li>Pay Crunchyroll</li>
+                <li><input type="checkbox" id="1s">
+                    <label for="1s" class="actual_checkbox"></label>
+                    <p>Reminder 1</p>
+                </li>
+                <li><input type="checkbox" id="2s">
+                    <label for="2s" class="actual_checkbox"></label>
+                    <p>Reminder 2</p>
+                </li>
+                <li><input type="checkbox" id="3s">
+                    <label for="3s" class="actual_checkbox"></label>
+                    <p>Reminder 3</p>
+                </li>
+                <li><input type="checkbox" id="4s">
+                    <label for="4s" class="actual_checkbox"></label>
+                    <p>Reminder 4</p>
+                </li>
             </ul>
         </div>
     </div>
