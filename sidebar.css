@@ -25,6 +25,7 @@ img.profilePic{
     display: inline-block;
     margin: 11px 0% 0% 5%;
     position: absolute;
+    user-select: none;
 }
 .account h1 {
     color: #e4e4e4;
@@ -49,9 +50,11 @@ img.profilePic{
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px #00000033;
     font-family: 'Nunito';
+    transition: background 0.3s;
+    cursor: pointer;
 }
 #today:hover {
-    animation: hovered-list 0.4s ease forwards; /*Needs to be changed*/
+    background: #292929;
 }
 
 .sTitle{
@@ -79,6 +82,7 @@ img.profilePic{
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px #00000033;
     font-family: 'Nunito';
+    user-select: none;
 }
 #newListLabel {
     position: absolute;
@@ -122,9 +126,12 @@ img.profilePic{
     font-family: 'Nunito';
     color: #cecece;
     display: block;
+    transition: background 0.3s;
+    cursor: pointer;
 }
 .reminder-list li:hover {
-    animation: hovered-list 0.4s ease forwards; /*Needs to be changed*/
+    background: #292929;
+    user-select: none;
 }
 .active-list {
     transform-box: fill-box;
@@ -143,12 +150,6 @@ button.deleteListButton {
     display: block !important;
     margin: -1px 14px 0px 0px;
     opacity: 0.7;
-}
-
-
-@keyframes hovered-list{
-    0%{}
-    100%{ background: #292929 }
 }
 
 @keyframes selected{
