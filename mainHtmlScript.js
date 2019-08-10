@@ -69,10 +69,20 @@ const deleteListButton = document.querySelector('[data-delete-list]')
 
 const listTitle = document.querySelector('[data-list-title]')
 
+const newReminder = document.querySelector('[data-new-reminder-input]')
+const newReminderInput = document.querySelector('[data-item-input]')
+const taskContainer = document.querySelector('[data-list-container]')
+const reminderTemplate = document.getElementById('reminderTemplate')
+
 const LOCAL_STORAGE_LIST_KEY = 'reminder.lists'
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'reminder.selectedListId'
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY)
+
+// if (selectedListId != null){
+//     document.getElementById('contentToday').style.display='none'
+//     document.getElementById('content').style.display='block'
+// }
 
 //Switch between Today and List view
 document.getElementById('today').addEventListener('click', function(){
@@ -105,8 +115,22 @@ newListForm.addEventListener('submit', function(e){
     saveAndRender()
 })
 
+newReminder.addEventListener('submit', function(e){
+    e.preventDefault()
+    lists.push(newReminderInput.value)
+})
+
+//not used
+function createReminder(){
+    lists.tasks.push(kenzo)
+}
+
 function createList(name) {
-    return {id: Date.now().toString(), name: name, tasks: []}
+    return {id: Date.now().toString(), name: name, tasks: [{
+        id: '1435',
+        name: 'Kenzo',
+        complete: true
+    }]}
 }
 
 function saveAndRender(){
@@ -119,16 +143,35 @@ function save(){
     localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId)
 }
 
-const selectedList = lists.find(list => list.id === selectedListId)
 function render() {
     ClearElement(listsContainer)
+    const selectedList = lists.find(list => list.id === selectedListId)
     if(selectedListId == null){
         document.getElementById('content').style.display='none'
         document.getElementById('contentToday').style.display='block'
-    } else{
+    } else {
         listTitle.innerText = selectedList.name
     }
     renderLists()
+
+    ClearElement(taskContainer)
+    renderTasks(selectedList)
+}
+
+function renderTasks(selectedList){
+    selectedList.tasks.forEach(task => {
+        const taskElement = document.importNode(reminderTemplate.content, true)
+        const checkbox = taskElement.querySelector('input')
+        checkbox.id = task.id
+        checkbox.checked = task.complete
+        const label = taskElement.querySelector('label')
+        label.htmlFor = task.id
+        //const reminderLi = taskElement.querySelector('li')
+        const reminderName = taskElement.querySelector('p')
+        reminderName.innerText = task.name
+        //reminderLi.append(task.name)
+        taskContainer.appendChild(taskElement)
+    })
 }
 
 function renderLists(){

@@ -1,18 +1,29 @@
 input[type=checkbox] {
-    visibility: hidden;
     position: absolute;
+    opacity: 0;
 }
-.actual_checkbox {
-    background: transparent;
-    border: solid 2px #a7a7a7;
-    box-sizing: border-box;
-    position: relative;
+.custom-checkbox {
+    height: 14px;
+    width: 14px;
+    border: solid 2px #D3D3D3;
+    border-radius: 50%;
     display: inline-block;
-    width: 18px;
-    height: 18px;
-    margin: -2px 0px 0px 0px;
-    border-radius: 4px;
+    position: absolute;
+    margin-top: -2px;
+    margin-left: -26px;
 }
+
+.reminders label {
+    margin-left: 24px;
+    cursor: pointer;
+}
+
 input:checked + label {
-    background:#909090;
+    color: gray;
+    text-decoration: line-through;
+}
+input:checked + label .custom-checkbox {
+    background: #696969;
+    border-color: gray;
+    box-shadow: inset 0 0 0 2px #292929;
 }

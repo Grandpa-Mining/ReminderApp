@@ -158,21 +158,33 @@
                         </form>
                     </div>
                 </li>
-                <li><input type="checkbox" id="1">
-                    <label for="1" class="actual_checkbox"></label>
-                    <p>Do the laundury</p>
+                <li>
+                    <input type="checkbox" id="1">
+                    <label for="1">
+                        <span class="custom-checkbox"></span>
+                        Do the laundury
+                    </label>
                 </li>
-                <li><input type="checkbox" id="2">
-                    <label for="2" class="actual_checkbox"></label>
-                    <p>Code this app without any goddamn bugs</p>
+                <li>
+                    <input type="checkbox" id="2">
+                    <label for="2">
+                        <span class="custom-checkbox"></span>
+                        Code this app without any goddamn bugs
+                    </label>
                 </li>
-                <li><input type="checkbox" id="3">
-                    <label for="3" class="actual_checkbox"></label>
-                    <p>Some random stuff</p>
+                <li>
+                    <input type="checkbox" id="3">
+                    <label for="3">
+                        <span class="custom-checkbox"></span>
+                        Watch YouTube
+                    </label>
                 </li>
-                <li><input type="checkbox" id="4">
-                    <label for="4" class="actual_checkbox"></label>
-                    <p>Do the laundury, again</p>
+                <li>
+                    <input type="checkbox" id="4">
+                    <label for="4">
+                        <span class="custom-checkbox"></span>
+                        Do something else
+                    </label>
                 </li>
             </ul>
         </div>
@@ -201,14 +213,14 @@
             </button>
         </div>
 
-
+<!-- List view below -->
 
         <div class="reminders">
             <ul id="other">
                 <!--Random reminders-->
                 <li id="addItem">
                     <div>
-                        <form>
+                        <form data-new-reminder-input>
                             <button>
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
                                     viewBox="0 0 172 172" style=" fill:#000000;">
@@ -242,26 +254,28 @@
                                 </svg>
                             </button>
                             <div class="divider2"></div>
-                            <input id="item" type="text">
+                            <input id="item" type="text" data-item-input>
                         </form>
                     </div>
                 </li>
-                <li><input type="checkbox" id="1s">
-                    <label for="1s" class="actual_checkbox"></label>
-                    <p>Reminder 1</p>
-                </li>
-                <li><input type="checkbox" id="2s">
-                    <label for="2s" class="actual_checkbox"></label>
-                    <p>Reminder 2</p>
-                </li>
-                <li><input type="checkbox" id="3s">
-                    <label for="3s" class="actual_checkbox"></label>
-                    <p>Reminder 3</p>
-                </li>
-                <li><input type="checkbox" id="4s">
-                    <label for="4s" class="actual_checkbox"></label>
-                    <p>Reminder 4</p>
-                </li>
+                <div data-list-container>
+                    <li><input type="checkbox" id="1s">
+                        <label for="1s" class="actual_checkbox"></label>
+                        <p>Reminder 1</p>
+                    </li>
+                    <li><input type="checkbox" id="2s">
+                        <label for="2s" class="actual_checkbox"></label>
+                        <p>Reminder 2</p>
+                    </li>
+                    <li><input type="checkbox" id="3s">
+                        <label for="3s" class="actual_checkbox"></label>
+                        <p>Reminder 3</p>
+                    </li>
+                    <li><input type="checkbox" id="4s">
+                        <label for="4s" class="actual_checkbox"></label>
+                        <p>Reminder 4</p>
+                    </li>
+                </div>
             </ul>
         </div>
     </div>
@@ -277,6 +291,12 @@
             document.getElementById('newListInput').value = '';
         });
     </script>
+    <template id="reminderTemplate">
+        <li>
+            <input type="checkbox">
+            <label class="actual_checkbox"></label>
+            <p><!-- Append paragraph with css --></p>
+        </li>
+    </template>
 </body>
-
 </html>
