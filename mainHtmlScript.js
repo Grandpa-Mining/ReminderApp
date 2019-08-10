@@ -25,14 +25,28 @@ document.getElementById("maximizeApp").addEventListener("click", function (e) {
 });
 
 
-document.getElementById('addReminder').addEventListener('click', function(){
+document.getElementById('addReminder-today').addEventListener('click', function(){
     if (isOpen == false) {
         // this is 'X' button
+            document.getElementById('addItem-today').style.display='block';
+            document.getElementById('addReminder-today').style.transform='rotate(45deg)'
+            isOpen = true;
+    } else {
+        // this is '+' button
+            document.getElementById('addItem-today').style.display='none';
+            document.getElementById('addReminder-today').style.transform='rotate(0deg)'
+            isOpen = false;
+    }
+});
+
+document.getElementById('addReminder').addEventListener('click', function(){
+    if (isOpen == false) {
+        // this is 'X' button (normal lists)
             document.getElementById('addItem').style.display='block';
             document.getElementById('addReminder').style.transform='rotate(45deg)'
             isOpen = true;
     } else {
-        // this is '+' button
+        // this is '+' button (Normal lists)
             document.getElementById('addItem').style.display='none';
             document.getElementById('addReminder').style.transform='rotate(0deg)'
             isOpen = false;
@@ -46,24 +60,14 @@ setInterval(function(){
 }, 1000);
 
 
-//TODO: rewrite code
-//send item and add it to the main html list
-const form = document.querySelector('form');
-form.addEventListener('submit', submitForm);
-
-function submitForm(e){
-    e.preventDefault();
-}
-
-//looks if a List in the sidebar is hovered
-//Not finished
-
 
 //Sidebar functionality
 const listsContainer = document.querySelector('[data-lists]')
 const newListForm = document.querySelector('[data-new-list-form]')
 const newListInput = document.querySelector('[data-new-list-input]')
 const deleteListButton = document.querySelector('[data-delete-list]')
+
+const listTitle = document.querySelector('[data-list-title]')
 
 const LOCAL_STORAGE_LIST_KEY = 'reminder.lists'
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'reminder.selectedListId'
@@ -72,17 +76,15 @@ let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY)
 
 //Switch between Today and List view
 document.getElementById('today').addEventListener('click', function(){
-    selectedListId = 'nope'
-    document.getElementById('content').style.display='none'
-    document.getElementById('contentToday').style.display='block'
+    selectedListId = null
     saveAndRender()
 })
 
 listsContainer.addEventListener('click', function(e){
     if (e.target.tagName.toLowerCase() === 'li'){
-        selectedListId = e.target.dataset.listId
         document.getElementById('content').style.display='block'
         document.getElementById('contentToday').style.display='none'
+        selectedListId = e.target.dataset.listId
     }
     saveAndRender()
 })
@@ -114,17 +116,29 @@ function saveAndRender(){
 
 function save(){
     localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(lists))
+    localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId)
 }
 
+const selectedList = lists.find(list => list.id === selectedListId)
 function render() {
     ClearElement(listsContainer)
+    if(selectedListId == null){
+        document.getElementById('content').style.display='none'
+        document.getElementById('contentToday').style.display='block'
+    } else{
+        listTitle.innerText = selectedList.name
+    }
+    renderLists()
+}
+
+function renderLists(){
     lists.forEach(list =>{
         const listElement = document.createElement('li')
         listElement.dataset.listId = list.id
         listElement.classList.add('list-item')
         listElement.innerText = list.name
         listsContainer.appendChild(listElement)
-
+        
         if (list.id === selectedListId){
             listElement.classList.add('active-list')
         }
@@ -138,3 +152,6 @@ function ClearElement(element){
 }
 
 render()
+
+//TODO: rewrite code
+//send item and add it to the main html list

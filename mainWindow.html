@@ -110,7 +110,7 @@
         <div id="img_container">
             <img class="coversheet" src="img/coverImages/sunset.png" alt="material styled sunset coversheet">
             <h1 class="title">Today</h1>
-            <button id="addReminder">+</button>
+            <button id="addReminder-today">+</button>
         </div>
 
 
@@ -118,7 +118,7 @@
         <div class="reminders">
             <ul id="todayList">
                 <!--Random reminders-->
-                <li id="addItem">
+                <li id="addItem-today">
                     <div>
                         <form>
                             <button>
@@ -181,9 +181,10 @@
     <div id="content" data-display-content>
         <div id="top-bar-list">
             <img class="coversheet" src="img/coverImages/sunset.png" alt="material styled sunset coversheet">
-            <h1 class="title" data-list-title>LIST_NAME</h1>
+            <h1 class="title" id="title1" data-list-title></h1>
             <button id="addReminder">+</button>
-            <button id='deleteList' data-delete-list><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="34" height="34"
+            <button id='deleteList' data-delete-list>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="34" height="34"
                     viewBox="0 0 172 172" style=" fill:#000000;">
                     <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                         stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
@@ -196,7 +197,8 @@
                             </path>
                         </g>
                     </g>
-                </svg></button>
+                </svg>
+            </button>
         </div>
 
 

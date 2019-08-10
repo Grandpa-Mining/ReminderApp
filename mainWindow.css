@@ -147,7 +147,25 @@ h1.title{
     font-family: 'Nunito';
     font-size: 50px;
 }
-button#addReminder{
+button#addReminder-today{
+    bottom: 13px;
+    position: sticky;
+    margin-right: 5%;
+    color: white;
+    font-family: 'Nunito';
+    font-size: 50px;
+    float: right;
+    background-color: transparent;
+    border: 0px;
+    opacity: 0.8;
+    transition: 0.3s;
+    outline: transparent;
+}
+button#addReminder-today:hover{
+    color: white;
+    opacity: 1;
+}
+button.addReminder{
     bottom: 13px;
     position: sticky;
     margin-right: 5%;
@@ -176,7 +194,49 @@ button#addReminder:hover{
     height: 14px;
     /*animation: drop 0.5s ease forwards;*/
 }
+
 /*Add Item popup*/
+#addItem-today {
+    display: none;
+    background: #292929;
+    animation: slidedown 0.4s ease forwards;
+    height: 22px;
+    padding: 10px 16px 16px 16px;
+}
+.divider2 {
+    background: #969696;
+    width: 1px;
+    height: 24px;
+    display: inline-block;
+    margin: 0px 10px;
+}
+#addItem-today input {
+    background: #292929;
+    width: 79%;
+    border: #292929;
+    border-bottom: solid 1px #5d5d5d;
+    transition: border-bottom, transform 0.4s;
+}
+#addItem-today input:focus {
+    outline: transparent;
+    animation: text-focus 0.4s ease forwards;
+    font-family: 'Nunito';
+    color: rgb(211, 211, 211);
+    font-size: 14px;
+    border-bottom: solid 1px rgb(36, 112, 189);
+    transform: translateY(-7px);
+}
+#addItem-today button {
+    background: transparent;
+    width: 24px;
+    height: 24px;
+    margin: 0px;
+    border: solid 1px transparent;
+    padding: 0px 0px;
+    opacity: 0.7;
+}
+
+/* Normal lists add reminder */
 #addItem {
     display: none;
     background: #292929;
@@ -196,7 +256,7 @@ button#addReminder:hover{
     width: 79%;
     border: #292929;
     border-bottom: solid 1px #5d5d5d;
-    animation: text-focus-back 0.3s ease;
+    transition: border-bottom, transform 0.4s;
 }
 #addItem input:focus {
     outline: transparent;
@@ -204,6 +264,8 @@ button#addReminder:hover{
     font-family: 'Nunito';
     color: rgb(211, 211, 211);
     font-size: 14px;
+    border-bottom: solid 1px rgb(36, 112, 189);
+    transform: translateY(-7px);
 }
 #addItem button {
     background: transparent;
@@ -219,20 +281,6 @@ button#addReminder:hover{
     0%{ transform: translateY(-50px)}
     70%{ transform: translateY(5px)}
     100%{ transform: translateY(0px)}
-}
-@keyframes text-focus{
-    0%{ border-bottom: solid 1px #5d5d5d }
-    100%{
-        border-bottom: solid 1px rgb(36, 112, 189);
-        transform: translateY(-8px);
-    }
-}
-@keyframes text-focus-back{
-    0%{
-        border-bottom: solid 1px #5d5d5d;
-        transform: translateY(2px);
-    }
-    100%{ border-bottom: solid 1px #5d5d5d }
 }
 
 /*Custom scrollbar (taken by Dark Instagram by DM)*/
