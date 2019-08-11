@@ -79,6 +79,8 @@ const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'reminder.selectedListId'
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY)
 
+selectedListId = null //Fixes the bug that made impossible to render the lists in the main sidebar
+
 // if (selectedListId != null){
 //     document.getElementById('contentToday').style.display='none'
 //     document.getElementById('content').style.display='block'
@@ -145,7 +147,7 @@ function save(){
 
 function render() {
     ClearElement(listsContainer)
-    const selectedList = lists.find(list => list.id === selectedListId)
+    let selectedList = lists.find(list => list.id === selectedListId)
     if(selectedListId == null){
         document.getElementById('content').style.display='none'
         document.getElementById('contentToday').style.display='block'
